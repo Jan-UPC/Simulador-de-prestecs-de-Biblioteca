@@ -1,0 +1,52 @@
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+header {
+    border-bottom: 3px solid #2994ff;
+}
+
+footer {
+    font-size: 20px;
+}
+
+.btn-small {
+    width: 140px;
+}
+
+.seccio {
+    animation: fadeIn 0.3s ease-in-out; /*Reproduim la animació fadeIn quan apareix qualsevol de les seccions*/
+    /*Amb ease-in-out indiquem que l'animació serà lenta al principi i al final*/
+}
+
+.animacio-llarga { /*Per seccions que triguin més en carregar*/
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+#div-tancar-sessio p {
+    font-size: 17px;
+    color: #000305;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    /*Es desplaça l'element cap amunt (reduir la Y mou l'element cap amunt) passant de ser transparent a visible*/
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
+
+.targeta-llibre, .targeta-prestec {
+    transition: transform 0.15s ease, box-shadow 0.15s ease; /*Els canvis en transform i box-shadow trigaran 0.15 segons en fer-se*/
+    /*Amb ease indiquem que l'animació comença serà ràpida al principi pero lenta al final*/
+    cursor: pointer;
+}
+
+.targeta-llibre:hover, .targeta-prestec:hover {
+    transform: translate(-3px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08); /*0 píxels d'offset en x i 4 en y, 12 píxels que indiquen com de difusa és l'ombra i el color de l'ombra amb un 8% d'opacitat*/
+}

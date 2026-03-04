@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ca"> <!--Indiquem que el contingut de la pàgina és en català-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Biblioteca</title>
+        <!-- Responsive bàsic -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--L'amplada de la pàgina s'ajustarà a l'amplada del dispositiu i el
+        sense fer zoom-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body class="bg-light">
+        <header class="bg-primary text-white p-3 mb-4"> <!--La capçalera de la pàgina té diferents botons per accedir ràpidament a diferents funcions de la pàgina de la biblioteca-->
+            <div class="container d-flex justify-content-between align-items-center">
+                <!--El header de Biblioteca anirà a l'esquerra del tot i els botons de navegació al final-->
+                <h1 class="h3 m-0">Biblioteca</h1>
+                <nav class="d-flex flex-wrap">
+                    <button id="nav-login" class="btn btn-light me-2 d-none">Inici de sessió</button>
+                    <button id="nav-perfil" class="btn btn-light me-2 d-none">Perfil d'usuari</button>
+                    <button id="nav-llibres" class="btn btn-light me-2 d-none">Llibres</button>
+                    <button id="nav-prestecs" class="btn btn-light me-2 d-none">Préstecs</button>
+                    <button id="nav-logout" class="btn btn-light d-none">Tancar sessió</button>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container">
+            <!--Secció inicial-->
+            <section id="seccio-inicial" class="w-50 mx-auto seccio"> <!--Fent servir "section" en comptes de "div", aconseguim donar-li sentit
+                semàntic a la secció de la pàgina (per més accesibilitat)-->
+                <h2 class="mb-3">Et donem la benvinguda a la Biblioteca</h2>
+                <div id="div-tancar-sessio" class="card p-3 shadow-sm">
+                    <p class="text-center mb-4 fw-bold">Selecciona una opció</p>
+                    <div class="container d-flex flex-wrap justify-content-between align-items-center"> <!--Amb flex-wrap aconseguim que es botons baixin a la següent línia
+                        si no hi ha suficient espai-->
+                        <button class="btn btn-success my-3" id="button-inicial-a-creacio">Crear compte</button>
+                        <button class="btn btn-primary my-3" id="button-inicial-a-login">Iniciar sessió</button>
+                    </div>
+                </div>
+                <div id="pagina-inicial-missatge" class="mt-3 missatge"></div>
+            </section>
+            
+            <!--Secció de creació de compte-->
+            <section id="seccio-crear-compte" class="d-none seccio animacio-llarga">
+                <h2 class="mb-3">Crear compte</h2>
+                <form id="form-crear-compte" class="card p-3 shadow-sm">
+                    <button class="btn btn-secondary btn-small mb-3 button-tornar-inici" type="button">Tornar a l'inici</button> 
+                    <div>
+                        <label for="crear-nom" class="form-label">Nom:</label> <!--El "label" serveix perquè, quan es cliqui a sobre d'aquest text, s'activi la casella
+                        d'input del nom per escriure-->
+                        <br>
+                        <input type="text" id="crear-nom" name="nom" class="form-control mb-4 camp-formulari" required>
+                    </div>
+
+                    <div>
+                        <label for="crear-email" class="form-label">Email:</label>
+                        <br>
+                        <input type="email" id="crear-email" name="email" class="form-control camp-formulari" placeholder="example@gmail.com" required>
+                    </div>
+                    
+                    <div>
+                        <br>
+                        <label for="crear-contrasenya" class="form-label">Contrasenya:</label>
+                        <br>
+                        <input type="password" id="crear-contrasenya" name="contrasenya" class="form-control camp-formulari" minlength="8" placeholder="Ha de tenir, com a mínim, 8 caràcters" required>
+                    </div>
+
+                    <div>
+                        <br>
+                        <label for="crear-confirmacio" class="form-label">Confirma la contrasenya:</label>
+                        <br>
+                        <input type="password" id="crear-confirmacio" name="confirmacio" class="form-control camp-formulari" minlength="8" required>
+                    </div>
+
+                    <button id="button-crear-compte" class="btn btn-primary w-100 mt-3" type="submit">Crear compte</button> 
+                </form>
+                <div id="creacio-compte-missatge" class="missatge mt-3"></div>
+            </section>
+
+            <!--Secció del login-->
+            <section id="seccio-login" class="d-none seccio">
+                <h2 class="mb-3">Inici de sessió</h2>
+                <form id="form-login" class="card p-3 shadow-sm">
+                    <button class="btn btn-secondary btn-small mb-3 button-tornar-inici" type="button">Tornar a l'inici</button> 
+                    <div>
+                        <label for="login-email" class="form-label">Email:</label>
+                        <br>
+                        <input type="email" id="login-email" name="email" class="form-control camp-formulari" placeholder="example@gmail.com" required>
+                    </div>
+
+                    <div>
+                        <br>
+                        <label for="login-contrasenya" class="form-label">Contrasenya:</label>
+                        <br>
+                        <input type="password" id="login-contrasenya" name="contrasenya" class="form-control camp-formulari"required>
+                    </div>
+
+                    <button id="button-login" class="btn btn-primary w-100 mt-3" type="submit">Accedir</button> 
+                </form>
+                <div id="login-missatge" class="mt-3 missatge"></div>
+            </section>
+
+            <!--Secció de la llista de llibres-->
+            <section id="seccio-llibres" class="d-none seccio">
+                <h1 id="benvinguda-usuari">Benvingut/da</h1>
+                <h2 class="mb-3">Llibres de la Biblioteca</h2>
+                <!--Filtre de categoria i barra de cerca-->
+                <div class="d-flex flex-wrap align-items-end gap-3 mb-3">
+                    <!--Amb "align-items-end" alineem els objectes pel seu extrem inferior (la seva base)-->
+                    <div>
+                        <label for="filtre-categoria" class="form-label fw-bold">Categoria</label>
+                        <!--"form-label" ens permet convertir l'etiqueta en un element de bloc, fent que el següent element
+                        (el desplegable) estigui a sota d'ella-->
+                        <select id="filtre-categoria" class="form-select">
+                            <option value="">Qualsevol</option>
+                            <option value="Poesia">Poesia</option>
+                            <option value="Teatral">Teatral</option>
+                            <option value="Novel·la">Novel·la</option>
+                            <option value="Fantasia">Fantasia</option>
+                            <option value="Ficció">Ficció</option>
+                            <option value="Terror">Terror</option>
+                            <option value="Misteri">Misteri</option>
+                            <option value="Autoajuda">Autoajuda</option>
+                            <option value="Biografia">Biografia</option>
+                            <option value="Història">Història</option>
+                            <option value="Cuina">Cuina</option>
+                            <option value="Viatges">Viatges</option>
+                            <option value="Educatiu">Educatiu</option>
+                            <option value="Ciència">Ciència</option>
+                        </select>
+                    </div>
+                    <div class="flex-grow-1">
+                        <!--Amb "flex-grow-1" fem que tot aquest div s'expandeixi i ocupi tota l'amplada restant-->
+                        <label for="filtre-camp" class="form-label fw-bold">Cercar per:</label>
+                        <select id="filtre-camp" class="form-select">
+                            <option value="titol">Títol</option>
+                            <option value="autor">Autor</option>
+                            <option value="any">Any</option>
+                        </select>
+                        <div class="input-group">
+                            <!--Amb "input-group" alineem la barra de cerca i el botó de cercar-->
+                            <input type="text" id="filtre-valor" class="form-control" placeholder="Escriu el que vulguis cercar">
+                            <!--"form-control" fa que la barra de cerca s'expandeixi el màxim possible, aprofitant que el "div"
+                            s'ha expandit gràcies a flex-grow-1-->
+                            <button id="button-fer-cerca" class="btn btn-primary">Cercar</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="llista-llibres" class="row g-3">
+                    <!--Aquí JS inserirà targetes de llibres-->
+                    <!--Gràcies a "row" creem un flex container amb "flex-wrap:wrap", fent que si els elements no caben en una fila, passin a la següent-->
+                    <!--Amb "g-3" afegim un petit espai entre columnes i files-->
+                </div>
+                <div id="paginacio-llibres" class="d-flex justify-content-center my-3 gap-2">
+                    <button id="llibres-anterior" class="btn btn-secondary">Anterior</button>
+                    <span id="llibres-pagina" class="fw-bold"></span>
+                    <button id="llibres-seguent" class="btn btn-secondary">Següent</button>
+                </div>
+            </section>
+
+            <!--Secció dels préstecs de l'usuari-->
+            <section id="seccio-prestecs" class="d-none seccio">
+                <h2 class="mb-3">Els meus préstecs</h2>
+                <p class="fw-bold">Nombre de llibres sense retornar: <span id="prestecs-pendents">0</span></p>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="checkbox-no-retornats">
+                    <label class="form-check-label fw-bold" for="checkbox-no-retornats">
+                        Mostrar només préstecs sense retornar
+                    </label>
+                </div>
+                <div id="paginacio-prestecs" class="d-flex justify-content-center my-3 gap-2">
+                    <button id="prestecs-anterior" class="btn btn-secondary">Anterior</button>
+                    <span id="prestecs-pagina" class="fw-bold"></span>
+                    <button id="prestecs-seguent" class="btn btn-secondary">Següent</button>
+                </div>
+                <div id="llista-prestecs" class="row g-3">
+                    <!--Aquí JS inserirà préstecs-->
+                </div>
+            </section>
+
+            <!--Secció del logout-->
+            <section id="seccio-logout" class="d-none w-50 mx-auto seccio">
+                <h2 class="mb-3">Tancar sessió</h2>
+                <div id="div-tancar-sessio" class="card p-3 shadow-sm">
+                    <p class="my-3 ms-3 fw-bold" >Estàs segur que vols tancar la sessió?</p>
+                    <p class="my-3 ms-3">Hauràs d'introduir les teves credencials per tornar a accedir al teu perfil d'usuari.</p>
+                    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+                        <button class="btn btn-secondary my-3" id="button-enrere-logout">Tornar enrere</button>
+                        <button class="btn btn-warning my-3" id="button-logout">Tancar sessió</button>
+                    </div>
+                </div>
+            </section>
+
+            <!--Secció del perfil-->
+            <section id="seccio-perfil" class="d-none w-50 mx-auto seccio">
+                <h2 id="perfil-titol" class="mb-3">Perfil d'usuari</h2>
+                <div id="div-perfil" class="card p-3 shadow-sm">
+                    <button id="button-enrere-perfil" class="btn btn-secondary btn-small mb-3 ms-2" type="button">Tornar enrere</button> 
+                    <p class="fw-bold">Nom: <span id="perfil-nom" class="fw-normal"></span></p>
+                    <p class="fw-bold">Email: <span id="perfil-email" class="fw-normal"></span></p>
+                    <div class="container d-flex flex-wrap justify-content-between align-items-center mt-3">
+                        <button class="btn btn-secondary my-3" id="button-editar-perfil">Modificar dades personals</button>
+                        <button class="btn btn-warning my-3" id="button-canviar-contrasenya">Modificar contrasenya</button>
+                        <button class="btn btn-danger my-3" id="button-eliminar-compte">Eliminar compte</button>
+                    </div>
+                </div>
+                <div id="perfil-missatge" class="missatge mt-3"></div>
+            </section>
+
+            <!--Secció modificar perfil-->
+            <section id="seccio-modificar" class="d-none seccio">
+                <h2 class="mb-3">Modificar dades personals</h2>
+                <form id="form-modificar" class="card p-3 shadow-sm">
+                    <button class="btn btn-secondary btn-small mb-3 button-tornar-perfil" type="button">Tornar enrere</button> 
+                    <div>
+                        <label for="modificar-nom" class="form-label">Nom:</label> 
+                        <br>
+                        <input type="text" id="modificar-nom" name="nom" class="form-control mb-4 camp-formulari" required>
+                    </div>
+
+                    <div>
+                        <label for="modificar-email" class="form-label">Email:</label>
+                        <br>
+                        <input type="email" id="modificar-email" name="email" class="form-control camp-formulari" placeholder="example@gmail.com" required>
+                    </div>
+                    
+                    <div>
+                        <br>
+                        <label for="contrasenya-en-modificar-perfil" class="form-label">Introdueix la teva contrasenya per confirmar els canvis:</label>
+                        <br>
+                        <input type="password" id="contrasenya-en-modificar-perfil" name="contrasenya" class="form-control camp-formulari"required>
+                    </div>
+
+                    <button id="button-modificar-compte" class="btn btn-primary w-100 mt-3" type="submit">Modificar dades personals</button> 
+                </form>
+                <div id="modificar-compte-missatge" class="missatge mt-3"></div>
+            </section>
+
+            <!--Secció canviar contrasenya-->
+            <section id="seccio-canviar-contrasenya" class="d-none seccio">
+                <h2 class="mb-3">Modificar contrasenya</h2>
+                <form id="form-canviar-contrasenya" class="card p-3 shadow-sm">
+                    <button class="btn btn-secondary btn-small mb-3 button-tornar-perfil" type="button">Tornar enrere</button> 
+                    <div>
+                        <label for="modificar-contrasenya-contrasenyaactual" class="form-label">Contrasenya actual:</label> 
+                        <br>
+                        <input type="password" id="modificar-contrasenya-contrasenyaactual" name="contrasenya_actual" class="form-control camp-formulari" required>
+                    </div>                    
+                    <div>
+                        <br>
+                        <label for="modificar-contrasenya-contrasenyanova" class="form-label">Contrasenya nova:</label>
+                        <br>
+                        <input type="password" id="modificar-contrasenya-contrasenyanova" name="contrasenya_nova" class="form-control camp-formulari"required>
+                    </div>
+
+                    <div>
+                        <br>
+                        <label for="modificar-contrasenya-confirmacio" class="form-label">Confirma la contrasenya nova:</label>
+                        <br>
+                        <input type="password" id="modificar-contrasenya-confirmacio" name="confirmacio" class="form-control camp-formulari" minlength="8" required>
+                    </div>
+
+                    <button id="button-modificar-compte" class="btn btn-warning w-100 mt-3" type="submit">Modificar contrasenya</button> 
+                </form>
+                <div id="modificar-contrasenya-missatge" class="missatge mt-3"></div>
+            </section>
+
+            <!--Modal pels llibres-->
+            <!--Fem servir un modal per mostrar els detalls d'un llibre (donant la possibilitat de reservar-lo si està disponible)
+            per no haver de carregar la llista de llibres un altre cop si l'usuari torna enrere-->
+            <div class="modal fade" id="modal-llibre" tabindex="-1">
+                <!--tabindex="-1" serveix per indicar que no es pot fer tabulació a elements que hi ha darrere del modal-->
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-titol"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><strong>Autor: </strong><span id="modal-autor"></span></p>
+                            <p><strong>Editorial: </strong><span id="modal-editorial"></span></p>
+                            <p><strong>Any: </strong><span id="modal-any"></span></p>
+                            <p><strong>Categoria: </strong><span id="modal-categoria"></span></p>
+                            <p><strong>ISBN: </strong><span id="modal-isbn"></span></p>
+                            <p><strong>Disponibilitat: </strong><span id="modal-disponibilitat"></span></p>
+                            <p id="missatge-prestec-1"></p>
+                            <p id="missatge-prestec-2"></p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <!--Un llibre només es pot reservar si està disponible, així que per defecte posem d-none perquè sigui invisible-->
+                            <button id="modal-reservar" class="btn btn-primary d-none">Reservar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal utilitzat per mostrar missatges alguns missatges d'error o èxit-->
+            <div class="modal fade" id="modal-missatge" tabindex="-1">
+                <!--tabindex="-1" serveix per indicar que no es pot fer tabulació a elements que hi ha darrere del modal-->
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-missatge-titol"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><strong></strong><span id="modal-missatge-motiu"></span></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="modal-missatge-sortir" class="btn btn-secondary d-none" data-bs-dismiss="modal">Sortir</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal per confirmar el retorn d'un llibre prestat-->
+            <div class="modal fade" id="modal-retorn" tabindex="-1">
+                <!--tabindex="-1" serveix per indicar que no es pot fer tabulació a elements que hi ha darrere del modal-->
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-retorn-titol"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><span id="modal-retorn-cos">Estas segur que vols retornar aquest llibre?</span></p>
+                            <p id="missatge-retorn-1"></p>
+                            <p id="missatge-retorn-2"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel·lar</button>
+                            <button id="modal-button-retorn" class="btn btn-success">Confirmar retorn</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal per confirmar l'eliminació del compte-->
+            <div class="modal fade" id="modal-eliminar-compte" tabindex="-1">
+                <!--tabindex="-1" serveix per indicar que no es pot fer tabulació a elements que hi ha darrere del modal-->
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-eliminar-compte-titol">Estàs segur que vols eliminar el teu compte?</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p><span id="modal-eliminar-compte-cos">Aquesta acció és irreversible. Si tens algun llibre sense retornar, no podràs eliminar el teu compte</span></p>
+                            <p id="missatge-eliminar-compte-1"></p>
+                            <p id="missatge-eliminar-compte-2"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel·lar</button>
+                            <button id="modal-button-eliminar-compte" class="btn btn-danger">Confirmar eliminació</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="text-center py-3 mt-4 text-muted">
+            <p>Biblioteca - Projecte final de PMUD de Jan-Bartosz Agudo Szul</p>
+        </footer>
+
+        <!--Fitxers JS-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> <!--Principalment, per poder crear finestres modals-->
+        <script src="client.js"></script>
+    </body>
+</html>

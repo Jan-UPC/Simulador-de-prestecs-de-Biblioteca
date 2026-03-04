@@ -1,0 +1,377 @@
+{
+  "usuaris": [
+    {
+      "id": 1,
+      "nom": "Albert",
+      "email": "albert@gmail.com",
+      "contrasenya": "hola_lector"
+    },
+    {
+      "id": 2,
+      "nom": "Eva",
+      "email": "eva@gmail.com",
+      "contrasenya": "54321EDCBA"
+    },
+    {
+      "id": 3,
+      "nom": "Joan",
+      "email": "joan@example.com",
+      "contrasenya": "XYZ12345"
+    },
+    {
+      "id": 4,
+      "nom": "Lis",
+      "email": "lis@hotmail.com",
+      "contrasenya": "lectura21"
+    },
+    {
+      "id": 5,
+      "nom": "Lolo",
+      "email": "babuceo@globo.pl",
+      "contrasenya": "labubu01"
+    },
+    {
+      "id": 6,
+      "nom": "Ali",
+      "email": "ali@gmail.com",
+      "contrasenya": "12345678"
+    }
+  ],
+  "llibres": [
+    {
+      "id": 1,
+      "titol": "Domina el retoque y la inteligencia artificial con Photoshop",
+      "autor": "Daniel Arranz",
+      "editorial": "JdeJ Editores",
+      "any": "2025",
+      "categoria": "Educatiu",
+      "ISBN": 9788412767957,
+      "disponible": true
+    },
+    {
+      "id": 2,
+      "titol": "Tirant lo Blanc / Joanot Martorell ; adaptació d'Anna Ponsatí",
+      "autor": "Anna Ponsatí",
+      "editorial": "Didacta",
+      "any": "2021",
+      "categoria": "Ficció",
+      "ISBN": 9788418695346,
+      "disponible": false
+    },
+    {
+      "id": 3,
+      "titol": "100 receptes a la catalana : un patrimoni culinari amb projecció internacional",
+      "autor": "Jaume Fàbrega",
+      "editorial": "Cossetània",
+      "any": "2024",
+      "categoria": "Cuina",
+      "ISBN": 9788413564449,
+      "disponible": false
+    },
+    {
+      "id": 4,
+      "titol": "The Thursday Murder Club",
+      "autor": "Richard Osman",
+      "editorial": "Viking",
+      "any": "2020",
+      "categoria": "Misteri",
+      "ISBN": 9780241425459,
+      "disponible": false
+    },
+    {
+      "id": 5,
+      "titol": "Els Buits infinits",
+      "autor": "Anna Maria Boixadé Solerdelcoll",
+      "editorial": "Talón de Aquiles",
+      "any": "2025",
+      "categoria": "Poesia",
+      "ISBN": 9791387733803,
+      "disponible": true
+    },
+    {
+      "id": 6,
+      "titol": "The Crash",
+      "autor": "Freida MacFadden",
+      "editorial": "Poisoned Pen Press",
+      "any": "2025",
+      "categoria": "Misteri",
+      "ISBN": 9781464228636,
+      "disponible": true
+    },
+    {
+      "id": 7,
+      "titol": "De l'ansietat al benestar : guia pràctica",
+      "autor": "Anna, Masnou Roig",
+      "editorial": "[Publicat independentment]",
+      "any": "2021",
+      "categoria": "Autoajuda",
+      "ISBN": 9798713844172,
+      "disponible": true
+    },
+    {
+      "id": 8,
+      "titol": "El Último secreto / Dan Brown ; traducción de Aleix Montoto y Claudia Conde",
+      "autor": "Dan Brown",
+      "editorial": "Planeta",
+      "any": "2025",
+      "categoria": "Novel·la",
+      "ISBN": 9788408306863,
+      "disponible": true
+    },
+    {
+      "id": 9,
+      "titol": "El Niño que perdió la guerra",
+      "autor": "Julia Navarro",
+      "editorial": "Plaza & Janés",
+      "any": "2024",
+      "categoria": "Història",
+      "ISBN": 9788401027970,
+      "disponible": true
+    },
+    {
+      "id": 10,
+      "titol": "La Leyenda de las tierras raras",
+      "autor": "Folagor",
+      "editorial": "Martínez Roca",
+      "any": "2017",
+      "categoria": "Ficció",
+      "ISBN": 9788427043718,
+      "disponible": true
+    },
+    {
+      "id": 11,
+      "titol": "Matemáticos, espías y piratas informáticos : codificación y criptografía",
+      "autor": "Joan Gómez i Urgellés",
+      "editorial": "RBA",
+      "any": "2010",
+      "categoria": "Educatiu",
+      "ISBN": 9788498678574,
+      "disponible": true
+    },
+    {
+      "id": 12,
+      "titol": "Bob Ross Biography: Painting the World and The Inspiring Story of Bob Ross",
+      "autor": "Chris Michael Hoyt",
+      "editorial": "[Publicat independentment]",
+      "any": "2023",
+      "categoria": "Biografia",
+      "ISBN": 9798389246515,
+      "disponible": false
+    },
+    {
+      "id": 13,
+      "titol": "El Señor de los anillos",
+      "autor": "J. R. R. Tolkien",
+      "editorial": "Minotauro",
+      "any": "2022",
+      "categoria": "Fantasia",
+      "ISBN": 9788445011119,
+      "disponible": true
+    },
+    {
+      "id": 14,
+      "titol": "Lugares asombrosos : travesías insólitas y otras maneras extrañas de conocer el mundo",
+      "autor": "Luisito Comunica",
+      "editorial": "Alfaguara",
+      "any": "2019",
+      "categoria": "Viatges",
+      "ISBN": 9788420452876,
+      "disponible": false
+    },
+    {
+      "id": 15,
+      "titol": "El Pescador",
+      "autor": "John Langan",
+      "editorial": "La Biblioteca de Carfax",
+      "any": "2018",
+      "categoria": "Terror",
+      "ISBN": 9788494923203,
+      "disponible": true
+    },
+    {
+      "id": 16,
+      "titol": "Romeo y Julieta",
+      "autor": "William Shakespeare",
+      "editorial": "Mosquito Books Barcelona",
+      "any": "2025",
+      "categoria": "Teatral",
+      "ISBN": 9788410417144,
+      "disponible": true
+    },
+    {
+      "id": 17,
+      "titol": "Atomic habits : tiny changes, remarkable results : an easy & proven way to build good habits & break bad ones",
+      "autor": "James Clear",
+      "editorial": "Avery",
+      "any": "2018",
+      "categoria": "Autoajuda",
+      "ISBN": 9780735211292,
+      "disponible": true
+    },
+    {
+      "id": 18,
+      "titol": "Polonia y el tráfico de armas en la guerra civil española",
+      "autor": "Lucas Molina Franco",
+      "editorial": "Galland Books Editorial",
+      "any": "2021",
+      "categoria": "Història",
+      "ISBN": 9788417816568,
+      "disponible": false
+    },
+    {
+      "id": 19,
+      "titol": "Harry Potter i la pedra filosofal",
+      "autor": "J. K. Rowling",
+      "editorial": "Empúries",
+      "any": "2018",
+      "categoria": "Fantasia",
+      "ISBN": 9788417016678,
+      "disponible": true
+    },
+    {
+      "id": 20,
+      "titol": "La Magia de la cocina",
+      "autor": "Carme Ruscalleda",
+      "editorial": "Bridge",
+      "any": "2017",
+      "categoria": "Cuina",
+      "ISBN": 9788416670222,
+      "disponible": false
+    },
+    {
+      "id": 21,
+      "titol": "Una Breve historia de casi todo",
+      "autor": "Bill Bryson",
+      "editorial": "RBA",
+      "any": "2023",
+      "categoria": "Ciència",
+      "ISBN": 9788411324021,
+      "disponible": true
+    },
+    {
+      "id": 22,
+      "titol": "Frankenstein",
+      "autor": "Mary Wollstonecraft Shelley",
+      "editorial": "Minotauro",
+      "any": "2025",
+      "categoria": "Terror",
+      "ISBN": 9788445019795,
+      "disponible": true
+    }
+  ],
+  "prestecs": [
+    {
+      "id": 1,
+      "usuari_id": 1,
+      "llibre_id": 1,
+      "inici": "2026-01-02",
+      "final": "2026-02-02",
+      "retornat": true
+    },
+    {
+      "id": 2,
+      "usuari_id": 1,
+      "llibre_id": 2,
+      "inici": "2026-01-02",
+      "final": "2026-02-02",
+      "retornat": true
+    },
+    {
+      "id": 3,
+      "usuari_id": 1,
+      "llibre_id": 3,
+      "inici": "2025-01-02",
+      "final": "2025-02-02",
+      "retornat": true
+    },
+    {
+      "id": 4,
+      "usuari_id": 1,
+      "llibre_id": 4,
+      "inici": "2026-01-02",
+      "final": "2026-02-02",
+      "retornat": false
+    },
+    {
+      "id": 5,
+      "usuari_id": 1,
+      "llibre_id": 3,
+      "inici": "2026-01-04",
+      "final": "2026-02-04",
+      "retornat": true
+    },
+    {
+      "id": 6,
+      "usuari_id": 5,
+      "llibre_id": 18,
+      "inici": "2026-01-05",
+      "final": "2026-02-05",
+      "retornat": false
+    },
+    {
+      "id": 7,
+      "usuari_id": 6,
+      "llibre_id": 12,
+      "inici": "2026-01-05",
+      "final": "2026-02-05",
+      "retornat": false
+    },
+    {
+      "id": 8,
+      "usuari_id": 6,
+      "llibre_id": 7,
+      "inici": "2026-01-05",
+      "final": "2026-02-05",
+      "retornat": true
+    },
+    {
+      "id": 9,
+      "usuari_id": 6,
+      "llibre_id": 1,
+      "inici": "2026-01-05",
+      "final": "2026-02-05",
+      "retornat": true
+    },
+    {
+      "id": 10,
+      "usuari_id": 1,
+      "llibre_id": 20,
+      "inici": "2026-01-06",
+      "final": "2026-02-06",
+      "retornat": false
+    },
+    {
+      "id": 11,
+      "usuari_id": 1,
+      "llibre_id": 13,
+      "inici": "2026-01-06",
+      "final": "2026-02-06",
+      "retornat": true
+    },
+    {
+      "id": 12,
+      "usuari_id": 1,
+      "llibre_id": 14,
+      "inici": "2026-01-06",
+      "final": "2026-02-06",
+      "retornat": false
+    },
+    {
+      "id": 13,
+      "usuari_id": 6,
+      "llibre_id": 3,
+      "inici": "2026-01-08",
+      "final": "2026-02-08",
+      "retornat": true
+    },
+    {
+      "id": 14,
+      "usuari_id": 6,
+      "llibre_id": 3,
+      "inici": "2026-01-08",
+      "final": "2026-02-08",
+      "retornat": false
+    }
+  ],
+  "sessions": []
+}

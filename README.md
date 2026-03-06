@@ -1,7 +1,7 @@
 # Simulador-de-prestecs-de-Biblioteca
 Projecte realitzat per a l'assignatura de Programació Multiplataforma i Distribuïda de l'EPSEVG
 
-## Com posar-ho en marxa?
+## Com utilitzar-lo?
 Per executar el servidor, s'ha d'obrir el directori "server" amb una terminal i executar:
 
 1. npm install (només una vegada)
